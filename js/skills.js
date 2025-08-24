@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Add 1 second delay before showing animations
                 category.animationTimeout = setTimeout(() => {
                     category.classList.add('animate');
-                }, 1000 + (index * 150));
+                }, 400 + (index * 150));
             } else {
                 // Remove animation class immediately when leaving
                 category.classList.remove('animate');

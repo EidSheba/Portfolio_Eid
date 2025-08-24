@@ -146,3 +146,59 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+
+// strat portfolio 
+// Show cards on scroll
+const cards = document.querySelectorAll(".card");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add("show");
+        }, i * 400);
+      }
+    });
+  },
+  { threshold: 0.2 }
+);
+
+cards.forEach((card) => observer.observe(card));
+
+// Slider logic for each card
+document.querySelectorAll(".card").forEach((card) => {
+  const images = card.querySelectorAll(".card-slider img");
+  const indicatorsContainer = card.querySelector(".indicators");
+  let index = 0;
+
+  // Create indicators
+  images.forEach((_, i) => {
+    const dot = document.createElement("span");
+    if (i === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => {
+      showSlide(i);
+    });
+    indicatorsContainer.appendChild(dot);
+  });
+
+  const dots = indicatorsContainer.querySelectorAll("span");
+
+  function showSlide(i) {
+    images[index].classList.remove("active");
+    dots[index].classList.remove("active");
+    index = i;
+    images[index].classList.add("active");
+    dots[index].classList.add("active");
+  }
+
+  // Auto change
+  setInterval(() => {
+    let next = (index + 1) % images.length;
+    showSlide(next);
+  }, 4000);
+});
+
+
+// end portfoloi 
