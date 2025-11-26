@@ -2,17 +2,17 @@
 window.addEventListener("load", function () {
   // Hide loading overlay
   document.getElementById("loadingOverlay").style.display = "none";
-  
+
   // Add 'visible' class to home section to trigger the 3D zoom-in animation
   const homeSection = document.querySelector('.home');
   if (homeSection) {
     // Use setTimeout to ensure the transition is visible
     setTimeout(() => {
       homeSection.classList.add('visible');
-    }, 50);
+    }, 20);
   }
-  
- 
+
+
 
   // Read More functionality
   const readMoreBtn = document.querySelector('.read-more-btn');
@@ -32,9 +32,9 @@ window.addEventListener("load", function () {
 
     // Initial setup
     updateReadMoreButton();
-    
+
     // Handle button click
-    readMoreBtn.addEventListener('click', function(e) {
+    readMoreBtn.addEventListener('click', function (e) {
       e.preventDefault();
       aboutParagraph.classList.toggle('expanded');
       readMoreBtn.textContent = aboutParagraph.classList.contains('expanded') ? 'Read Less' : 'Read More';
@@ -61,10 +61,10 @@ const navLinks = document.querySelectorAll('.nav-item a');
 
 // Toggle sidebar when menu button is clicked
 if (mobileMenuToggle && sidebar) {
-  mobileMenuToggle.addEventListener('click', function() {
+  mobileMenuToggle.addEventListener('click', function () {
     this.classList.toggle('active');
     sidebar.classList.toggle('active');
-    
+
     // Animate hamburger to X
     const spans = this.querySelectorAll('span');
     if (this.classList.contains('active')) {
@@ -84,7 +84,7 @@ if (mobileMenuToggle && sidebar) {
       if (window.innerWidth < 992) { // Only for mobile
         mobileMenuToggle.classList.remove('active');
         sidebar.classList.remove('active');
-        
+
         // Reset hamburger icon
         const spans = mobileMenuToggle.querySelectorAll('span');
         spans[0].style.transform = 'none';
@@ -138,7 +138,7 @@ const animateOnScroll = () => {
 // Initialize animations when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
   animateOnScroll();
-  
+
   // Re-initialize animations when navigating with hash links
   window.addEventListener('hashchange', () => {
     if (window.location.hash === '#about') {
