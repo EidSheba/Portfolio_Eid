@@ -117,6 +117,35 @@
   line-height: 1.5;
 }
 
+.contact-link {
+  color: #a0a0c0;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s ease;
+}
+
+.contact-link::after {
+  content: "\f061";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 0.8rem;
+  opacity: 0;
+  transform: translateX(-5px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.contact-link:hover {
+  color: #fff;
+}
+
+.contact-link:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .social-links {
   display: flex;
   gap: 15px;
