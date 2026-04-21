@@ -1,0 +1,83 @@
+/* Local Font Setup */
+@font-face {
+  font-family: 'Inter';
+  src: url('../webfonts/inter-400.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../webfonts/inter-700.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('../webfonts/outfit-400.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('../webfonts/outfit-700.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('../webfonts/outfit-900.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Global Typography - Inter & Outfit */
+:root {
+  --font-main: 'Inter', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+}
+
+/* Force for main body elements */
+body, p, span, a, li, input, textarea, button, blockquote, div {
+  font-family: var(--font-main) !important;
+}
+
+h1, h2, h3, h4, h5, h6, 
+.section-title, 
+.card h3, 
+.navbar-brand,
+.nav-item a,
+.skills-main-title,
+.skill-category-title {
+  font-family: var(--font-heading) !important;
+  font-weight: 700 !important;
+}
+
+/* Semi-bold for links and buttons */
+.nav-item a, .btn, .submit-btn, .go-live-btn, .go-live-purple {
+  font-weight: 600 !important;
+}
+
+/* Re-apply Font Awesome specific families and weights */
+.fas, .fa-solid, .fa-classic {
+  font-family: "Font Awesome 5 Free", "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+}
+
+.fab, .fa-brands {
+  font-family: "Font Awesome 5 Brands", "Font Awesome 6 Brands" !important;
+  font-weight: 400 !important;
+}
+
+.far, .fa-regular {
+  font-family: "Font Awesome 5 Free", "Font Awesome 6 Free" !important;
+  font-weight: 400 !important;
+}

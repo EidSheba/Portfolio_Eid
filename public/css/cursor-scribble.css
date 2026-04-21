@@ -1,0 +1,72 @@
+/* Interactive Scribble Cursor Trail Effect */
+.scribble-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: screen;
+}
+
+.scribble-point {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  will-change: transform, opacity;
+}
+
+/* Neon glow effects */
+.scribble-point.cyan {
+  background: radial-gradient(circle, #00ffff 0%, #00cccc 50%, transparent 70%);
+  box-shadow: 
+    0 0 10px #00ffff,
+    0 0 20px #00cccc,
+    0 0 30px #0099cc,
+    inset 0 0 10px #00ffff;
+}
+
+.scribble-point.magenta {
+  background: radial-gradient(circle, #ff00ff 0%, #cc00cc 50%, transparent 70%);
+  box-shadow: 
+    0 0 10px #ff00ff,
+    0 0 20px #cc00cc,
+    0 0 30px #9900cc,
+    inset 0 0 10px #ff00ff;
+}
+
+.scribble-point.lime {
+  background: radial-gradient(circle, #00ff00 0%, #00cc00 50%, transparent 70%);
+  box-shadow: 
+    0 0 10px #00ff00,
+    0 0 20px #00cc00,
+    0 0 30px #009900,
+    inset 0 0 10px #00ff00;
+}
+
+/* Animation for fade and disintegrate effect */
+@keyframes scribbleFade {
+  0% {
+    opacity: 1;
+    transform: scale(1) translate(0, 0);
+    filter: blur(0px);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2) translate(var(--jitter-x), var(--jitter-y));
+    filter: blur(0.5px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.3) translate(var(--jitter-x) * 2, var(--jitter-y) * 2);
+    filter: blur(2px);
+  }
+}
+
+/* Performance optimizations */
+.scribble-point {
+  animation: scribbleFade 0.8s ease-out forwards;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
